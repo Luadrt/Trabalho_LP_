@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Não Repara na Bagunça</title>
+    <link rel="stylesheet" href="todo_list.css"> <!--Link do css-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!--Links para as fontes-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+   <script src="todo_list.js"></script> <!--Link do javascript-->
+<main class="aplicativo">
+    <section class="saudações"> <!--Cabeçalho com em que o usuario pode inserir o seu nome na pagina-->
+        <h2 class="titulo">
+        Vamos fazer a mágica da limpeza,<input type="text" id="nome" placeholder="Seu nome aqui">  <!--input para o usuario personalizar com o nome-->
+    </section>
+    <section class="crie-sua-lista"> <!--Criação das tarefas para a lista de tarefas com opções de urgente e não urgente-->
+        <h3>Crie sua lista de tarefas</h3>
+        <form id="nova-lista-de-tarefas">
+            <h4>Qual a sua nova tarefa?</h4>
+            <input 
+            type="text"
+            name="conteudo" 
+            id="conteudo" 
+            placeholder="exemplo: Lavar a louça"> <!--Input para a escrever a tarefa -->
+            <h4>Escolha uma opção:</h4>
+                <div class="opcoes"> <!--As opções de tarefa que a pessoa pode escolher (urgente e não urgente)--> 
+                    <label> <!--Categoria 1 - Urgente-->
+                    <input 
+                        type="radio"
+                        name="categoria" 
+                        id="catergoria1" 
+                        value="Urgente"/> 
+                    <span class="bolha urgente"></span>
+                    <div>Urgente</div>
+                    </label>
+
+                    <label> <!--Categoria 2 - Não urgente-->
+                    <input
+                        type="radio"
+                        name="categoria" 
+                        id="catergoria2" 
+                        value="Não Urgente"/>
+                    <span class="bolha nao_urgente"></span>
+                    <div>Não Urgente</div>
+                    </label>
+                </div>
+            <input type="submit" value="Adicione uma tarefa"/> <!--botão para adicionar as tarefas-->
+        </form>
+    </section>
+
+    <section class="lista_de_tarefas"> <!--A lista com as tarefas-->
+        <h3>LISTA DE TAREFAS</h3>
+        <div class="lista" id="lista_de_tarefas"> 
+            <div class="item feito">
+                <label>
+                    <input type="checkbox"/> <!--input de checkbox para criar as bolhas (urgente)-->
+                    <span class="bolha urgente"></span>
+                </label>
+
+                <div class="conteudo_item">
+                    <input type="text" value="Lavar a louça" readonly> <!--itens da lista (urgente)-->
+                </div>
+                <div class="acoes">
+                    <button class="editar">Editar</button> <!--botões de editar e deletar-->
+                    <button class="deletar">Deletar</button>
+                </div>
+            </div>
+
+            <div class="item ">
+                <label>
+                    <input type="checkbox"/> <!--input de checkbox para criar as bolhas (não urgente)-->
+                    <span class="bolha nao_urgente"></span>
+                </label>
+
+                <div class="conteudo_item">
+                    <input type="text" value="Lavar janelas" readonly> <!--itens da lista (urgente)-->
+                </div>
+                <div class="acoes">
+                    <button class="editar">Editar</button> <!--botões de editar e deletar-->
+                    <button class="deletar">Deletar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+</body>
+</html>

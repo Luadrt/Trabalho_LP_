@@ -1,0 +1,236 @@
+:root{
+    /* definindo variaveis para as cores do projeto*/
+    --primaria: #90ee90;
+    --urgente: #00bfff;
+    --nao_urgente:#67bc67  ;
+    --cinza:#27262680;
+    --luz:#a6efa6;
+    --escuro:#0b0b0ce2;
+    --perigo:#ff5b57;
+    --fundo:#F0F8FF;
+    --botoes:#47ad47d2;
+
+    --sombra: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    --urgente-brilho: 0px 0px 4px rgb(0, 191, 255, 0.75);
+    --nao_urgente-brilho: 0px 0px 4px  rgba(145, 242, 145, 0.908);
+}
+
+* {/*Definindo margens e as fontes */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input:not([type="radio"]):not([type="checkbox"]), button{
+    appearance: none;
+    border:none;
+    outline: none;
+    background: none;
+    cursor: initial;
+}
+
+body {
+    background: var(--luz);
+    color: var(--escuro);
+}
+
+section {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+
+h3 {
+    color: var(--escuro);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+h4 {
+    color: var(--escuro) ;
+    font-size: 0.9rem ;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.saudações .titulo{
+    display: flex;
+}
+
+.saudações .titulo input{
+    margin-left: 0.5rem;
+    flex: 1 1 0%;
+    min-width: 0;
+}
+.saudações .titulo,
+.saudações .titulo input {
+    color: var(--escuro);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.crie-sua-lista input[type="text"] {
+ display: block;
+ width: 100%;
+ font-size: 1.125rem;
+ padding:20px 20px;
+ color: var(--escuro);
+ background-color:var(--fundo); 
+ border-radius: 0.5rem;
+ box-shadow: var(--sombra) ;
+ margin-bottom: 1.5rem;
+}
+
+.crie-sua-lista .opcoes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.crie-sua-lista .opcoes label {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background-color: var(--fundo);
+    border-radius: 0.5rem;
+    box-shadow: var(--sombra);
+    cursor: pointer;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    display: none;
+}
+
+.bolha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--urgente);
+    box-shadow:var(--urgente-brilho) ;
+}
+
+.bolha.nao_urgente {
+    border-color: var(--nao_urgente);
+    box-shadow: var(--nao_urgente-brilho);
+}
+.bolha::after {
+    content:"" ;
+    display: block;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    background-color: var(--urgente);
+    box-shadow:var(--urgente-brilho) ;
+    border-radius: 50%;
+    transition: 0.2s ease-in-out;
+}
+
+
+.bolha.bolha.nao_urgente::after {
+    background-color: var(--nao_urgente);
+    box-shadow: var(--nao_urgente-brilho);
+}
+
+input:checked ~.bolha::after {
+    width: 10px;
+    height: 10px;
+    opacity: 1;
+}
+
+.crie-sua-lista .opcoes label div {
+    color: var(--escuro);
+    font-size: 1.125rem;
+    margin-top: 1rem;
+}
+
+.crie-sua-lista input[type="submit"] {
+    display: block;
+    width: 100%;
+    font-size: 1.125rem;
+    padding: 1rem 1.5rem;
+    color: var(--escuro);
+    background-color:var(--botoes) ;
+    border-radius: 0.5rem;
+    box-shadow: var(--nao_urgente-brilho);
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.crie-sua-lista input[type="submit"]:hover {
+    opacity: 0.75;
+}
+
+.lista_de_tarefas .lista {
+    margin:  1rem 0;
+}
+
+.lista_de_tarefas .item{
+    display: flex;
+    align-items: center;
+    background-color: var(--fundo);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--sombra);
+    margin-bottom: 1rem;
+}
+
+.lista_de_tarefas label {
+    display: block;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.lista_de_tarefas .conteudo_item {
+   flex: 1 1 0%;
+
+}
+
+.lista_de_tarefas .conteudo_item input {
+    color: var(--escuro);
+    font-size: 1.125rem;
+}
+
+.lista_de_tarefas .acoes {
+    display: flex;
+    align-items: center;
+}
+
+.lista_de_tarefas .acoes button {
+    display: block;
+    padding: 0.5rem ;
+    border-radius: 0.25rem;
+    color: #F0F8FF;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.lista_de_tarefas .acoes button:hover{
+    opacity: 0.60;
+}
+
+.lista_de_tarefas .acoes .editar {
+    margin-left: 0.5rem;
+    background-color: var(--botoes);
+}
+
+.lista_de_tarefas .acoes .deletar {
+    margin-left: 0.5rem;
+    background-color: var(--perigo);
+}
+
+.item.feito .conteudo_item input {
+    text-decoration: line-through;
+    color:var(--cinza)
+}
